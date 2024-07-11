@@ -69,3 +69,24 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.hero-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5vh 3vw;
+}
+.hero-title {
+  font-size: 3vw;
+  font-weight: bolder;
+  color: white;
+}
+
+.hero-time {
+  color: white;
+  font-size: 1vw;
+  padding: 0.2vh 0.5vw;
+  border: 1px solid white;
+  width: 5.2vw;
+  border-radius: 0.2vw;
+}
