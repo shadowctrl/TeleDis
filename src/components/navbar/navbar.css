@@ -1,0 +1,25 @@
+.navbar-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2vh 0.5vw 0.2vh 2vw;
+  color: white;
+  border: 1px solid whitesmoke;
+  border-radius: 0.5vw;
+}
+.navbar-components ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  font-size: 1vw;
+  font-weight: 600;
+}
+.navbar-components ul li:hover {
+  background-color: rgb(255, 255, 255, 1);
+  color: black;
+  padding: 1vh 0.5vw;
+  border-radius: 0.5vw;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
