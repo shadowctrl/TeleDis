@@ -8,7 +8,9 @@ const Navbar = () => {
       <div className="navbar-components">
         <ul>
           <li>Overview</li>
-          <li>Settings</li>
+          <li>
+            <Link href="/settings">Settings </Link>
+          </li>
         </ul>
       </div>
       <div className="navbar-avatar">
