@@ -1,11 +1,26 @@
 "use client";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import "./settings.css";
 import { Settings2Icon } from "lucide-react";
 
 const page = () => {
+  const [savedSettings, setSaved] = useState<{
+    telegramId: string;
+    discordId: string;
+  } | null>(null);
+
+  const fetchSettings = async () => {
+    const res = await fetch("http://localhost:3000/api/formFetch");
+    const data = await res.json();
+    setSaved(data);
+  };
+
   const [submitted, setSubmit] = useState(false);
   const [success, setSuccess] = useState<boolean | undefined>(undefined);
+
+  useEffect(() => {
+    fetchSettings();
+  }, []);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,21 +43,19 @@ const page = () => {
         setSuccess(true);
         setTimeout(() => {
           setSuccess(undefined);
+          window.location.reload();
         }, 3000);
-        event.currentTarget?.reset();
       } else {
         setSuccess(false);
         setTimeout(() => {
           setSuccess(undefined);
         }, 3000);
-        event.currentTarget?.reset();
       }
     } catch (err) {
       setSuccess(false);
       setTimeout(() => {
         setSuccess(undefined);
       }, 3000);
-      event.currentTarget?.reset();
     } finally {
       setSubmit(false);
     }
@@ -61,7 +74,11 @@ const page = () => {
               type="text"
               id="Tid"
               name="Tid"
-              placeholder="@mirrorbot / -1020131887"
+              placeholder={
+                savedSettings?.telegramId
+                  ? `curernt: ${savedSettings?.telegramId}`
+                  : "@mirrorbot / -1020131887"
+              }
               required
               autoComplete="off"
             />
@@ -72,7 +89,11 @@ const page = () => {
               type="text"
               id="Did"
               name="Did"
-              placeholder="@mirrorbot / -1020131887"
+              placeholder={
+                savedSettings?.discordId
+                  ? `curernt: ${savedSettings?.discordId}`
+                  : "@mirrorbot / -1020131887"
+              }
               required
               autoComplete="off"
             />
@@ -80,7 +101,7 @@ const page = () => {
           {success === undefined && (
             <input
               type="submit"
-              value="Submit"
+              value="save"
               className="settings-form-submit"
               disabled={submitted}
             />
