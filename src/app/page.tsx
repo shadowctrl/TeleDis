@@ -1,5 +1,8 @@
-import Timer from "@/lib/timer";
-
+import dynamic from "next/dynamic";
+const Timer = dynamic(() => import("@/lib/timer"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
 export default function Home() {
   return (
     <main>
