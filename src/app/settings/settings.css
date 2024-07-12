@@ -48,33 +48,34 @@
 }
 .settings-form form div {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 1vh;
+  align-items: center;
+  gap: 1vw;
   width: 100%;
 }
 
+.settings-form form:last-child {
+  align-items: center;
+}
 .settings-form label {
   font-family: sans-serif;
   font-size: 1.5vw;
 }
 .settings-form input {
   outline: none;
-  background-color: transparent;
+  background-color: rgb(0, 0, 0, 0.5);
   border: 1px solid rgb(255, 255, 255, 0.5);
   border-radius: 0.2vw;
   padding: 0.3vh 1vw;
-  width: inherit;
 }
 
 .settings-form input::placeholder {
   opacity: 0.4;
 }
-
 .settings-form-submit {
   font-family: Verdana;
   cursor: pointer;
+  width: fit-content;
 }
 .settings-form-submit:hover {
   animation: fadeForm 0.5s ease-in-out forwards;
@@ -83,5 +84,37 @@
   100% {
     background-color: white;
     color: black;
+  }
+}
+
+.form-success {
+  border: 1px solid white;
+  padding: 0.2vh 1vw;
+  border-radius: 0.5vw;
+  font-size: 1vw;
+  font-family: monospace;
+  animation: formSlide 0.5s ease-in forwards, formSubmit 0.7s ease-in 3 forwards;
+  transform: translateY(-5vh);
+  opacity: 0;
+}
+@keyframes formSlide {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes formSubmit {
+  0% {
+    color: white;
+    background-color: transparent;
+  }
+  50% {
+    color: black;
+    background-color: rgb(255, 255, 255, 0.5);
+  }
+  100% {
+    color: black;
+    background-color: rgb(255, 255, 255, 0.5);
+    transform: translateY(0);
   }
 }
