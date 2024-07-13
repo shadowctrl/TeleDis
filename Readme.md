@@ -6,6 +6,8 @@ This Next.js application serves as a bot that mirrors messages from a Telegram c
 
 A Next.js app uses server-side rendering to power a bot connecting Telegram and Discord. It fetches Telegram messages via API ([Long Pooling Method](https://en.wikipedia.org/wiki/Push_technology#Long_polling)), forwards them to Discord using webhooks, ensuring real-time sync. Seamless platform interaction without switching.
 
+Additionally, the app features a web UI with a live dashboard for monitoring message flow and settings configuration for managing bot preferences and integrations.
+
 ## Features
 
 - Live Dashboard & Settings
