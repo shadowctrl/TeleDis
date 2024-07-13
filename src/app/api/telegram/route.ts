@@ -1,9 +1,10 @@
 import path from "path";
 import { promises as fs } from "fs";
 
+const channelDataPath = path.join(process.cwd(), "src/lib/formData.json");
 const helperPath = path.join(process.cwd(), "src/lib/telegramHelper.json");
 const apiUrl = `https://api.telegram.org/bot${process.env.Telegram_Token}`;
-const body = { allowed_updates: ["message", "edited_message", "channel_post"] };
+const body = { allowed_updates: ["edited_message", "channel_post"] };
 
 interface HelperData {
   update_id: number;
@@ -49,6 +50,22 @@ const getUpdates = async () => {
     },
     cache: "no-store",
   });
+
+  const feeds = await respone.json();
+
+  const messageLength: number = feeds.result.length;
+  if (messageLength <= 0) return;
+
+  var channelData = await fs.readFile(channelDataPath, "utf8");
+  const { telegramId }: { telegramId: string } = JSON.parse(channelData);
+
+  for (let i = 0; i < messageLength; i++) {
+    if (feeds.result[i].channel_post.chat.id == telegramId)
+      await fetch(`${process.env.Base_Url}/api/discord`, {
+        method: "POST",
+        body: JSON.stringify(feeds.result[i].channel_post.text),
+      });
+  }
   await updateId();
 };
 
