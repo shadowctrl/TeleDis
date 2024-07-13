@@ -90,3 +90,7 @@ body {
   width: 5.2vw;
   border-radius: 0.2vw;
 }
+
+.hero-switch {
+  color: aliceblue;
+}
