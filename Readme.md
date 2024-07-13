@@ -23,7 +23,7 @@ To deploy and run the Telegram to Discord Message Mirror Bot locally or on your 
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your-username/telegram-to-discord-bot.git
+   git clone https://github.com/shadowctrl/Telegram-Discord-Bot
    cd telegram-to-discord-bot
 
    ```
