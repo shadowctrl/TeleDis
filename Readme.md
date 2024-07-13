@@ -2,6 +2,9 @@
 
 This Next.js application serves as a bot that mirrors messages from a Telegram channel to a Discord channel using webhooks.
 
+## Important Notice
+This Application is still under development. Please be patient for daily updates.
+
 # Table of Contents
 
 - [Overview](#overview)
