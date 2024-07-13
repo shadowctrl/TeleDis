@@ -2,6 +2,18 @@
 
 This Next.js application serves as a bot that mirrors messages from a Telegram channel to a Discord channel using webhooks.
 
+##Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Environmental variables](#environment-variables)
+- [Technoligies Used](#technologies-used)
+- [Contributing](#contributing)
+- [Developers](#developers)
+- [Support / Issues](#support)
+- [Buy Me a Coffee](#-you-can-help-me-by-donating)
+
 ## Overview
 
 A Next.js app uses server-side rendering to power a bot connecting Telegram and Discord. It fetches Telegram messages via API ([Long Pooling Method](https://en.wikipedia.org/wiki/Push_technology#Long_polling)), forwards them to Discord using webhooks, ensuring real-time sync. Seamless platform interaction without switching.
@@ -65,7 +77,7 @@ To deploy and run the Telegram to Discord Message Mirror Bot locally or on your 
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file. Please refer **Step 3** in [Getting Started](##GettingStarted)
+To run this project, you will need to add the following environment variables to your .env file. Please refer **Step 3** in [Getting Started](#getting-started)
 
 `Telegram ID`
 
@@ -83,10 +95,14 @@ Contributions are always welcome!
 
 - **Make a pull request**
 
-## Authors
+## Developers
 
 - [@shadowctrl](https://www.github.com/shadowtrl)
 
 ## Support
 
 For support, raise a issue [here](https://github.com/shadowctrl/Telegram-Discord-Bot/issues) or email admin@shadowctrl.me.
+
+## 💰 You can help me by Donating
+
+[![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/shadowctrl) [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/shadowctrl)
