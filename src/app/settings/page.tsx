@@ -10,7 +10,9 @@ const page = () => {
   } | null>(null);
 
   const fetchSettings = async () => {
-    const res = await fetch(`${process.env.Base_Url}/api/formFetch`);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_Base_Url}/api/formFetch`
+    );
     const data = await res.json();
     setSaved(data);
   };
@@ -28,7 +30,7 @@ const page = () => {
     const formData = new FormData(event.currentTarget);
     const rawFormData = {
       telegramId: formData.get("Tid"),
-      discordId: formData.get("Did"),
+      discordId: `${formData.get("Did")}`,
     };
     const options = {
       method: "POST",
@@ -37,7 +39,10 @@ const page = () => {
     };
 
     try {
-      const res = await fetch(`${process.env.Base_Url}/api/form`, options);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_Base_Url}/api/form`,
+        options
+      );
 
       if (res.ok) {
         setSuccess(true);
@@ -77,22 +82,22 @@ const page = () => {
               placeholder={
                 savedSettings?.telegramId
                   ? `curernt: ${savedSettings?.telegramId}`
-                  : "@mirrorbot / -1020131887"
+                  : "-1020131887"
               }
               required
               autoComplete="off"
             />
           </div>
           <div>
-            <label htmlFor="Did">Discord Channel ID</label>
+            <label htmlFor="Did">Discord Webhook URL</label>
             <input
-              type="text"
+              type="url"
               id="Did"
               name="Did"
               placeholder={
                 savedSettings?.discordId
                   ? `curernt: ${savedSettings?.discordId}`
-                  : "@mirrorbot / -1020131887"
+                  : ""
               }
               required
               autoComplete="off"

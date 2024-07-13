@@ -61,7 +61,7 @@ const getUpdates = async () => {
 
   for (let i = 0; i < messageLength; i++) {
     if (feeds.result[i].channel_post.chat.id == telegramId)
-      await fetch(`${process.env.Base_Url}/api/discord`, {
+      await fetch(`${process.env.NEXT_PUBLIC_Base_Url}/api/discord`, {
         method: "POST",
         body: JSON.stringify(feeds.result[i].channel_post.text),
       });
