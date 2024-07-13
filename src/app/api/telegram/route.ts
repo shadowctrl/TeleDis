@@ -69,29 +69,23 @@ const getUpdates = async () => {
   await updateId();
 };
 
-let intervalId: NodeJS.Timeout | null = null;
+let intervalId: NodeJS.Timeout;
 
-const startListen = async () => {
-  try {
-    await fs.access(helperPath);
-    intervalId = setInterval(getUpdates, 3000);
-    // await getUpdates();
-  } catch (error) {
-    await updateId();
-  }
+const Listen = async (value: Boolean) => {
+  if (value) {
+    try {
+      await fs.access(helperPath);
+      intervalId = setInterval(getUpdates, 3000);
+      // await getUpdates();
+    } catch (error) {
+      await updateId();
+    }
+  } else clearInterval(intervalId);
 };
 
-const stopListen = async () => {
-  if (intervalId) {
-    clearInterval(intervalId);
-    intervalId = null;
-    console.log(intervalId, "Cleared");
-  }
-};
 export const POST = async (request: Request) => {
-  const { value } = await request.json();
-  if (value) startListen();
-  else if (!value) stopListen();
+  const { value }: { value: Boolean } = await request.json();
+  Listen(value);
 
   return new Response("Telegram Bot Running", { status: 200 });
 };

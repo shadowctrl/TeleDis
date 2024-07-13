@@ -1,7 +1,13 @@
+import { promises as fs } from "fs";
+import path from "path";
+const channelDataPath = path.join(process.cwd(), "src/lib/formData.json");
+
 export const POST = async (request: Request) => {
+  var channelData = await fs.readFile(channelDataPath, "utf8");
+  const { discordId }: { discordId: string } = JSON.parse(channelData);
   const res = await request.json();
   await fetch(
-    "https://discord.com/api/webhooks/1261664114128719902/Hu8oxb3glMc-BjP0l5zYb4HvyOZnnzQ7iqloHSYYUZn_uPxhVbUpbDaxGUvp-4J_RUW1",
+    discordId,
 
     {
       method: "POST",
