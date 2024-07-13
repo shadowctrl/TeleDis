@@ -10,7 +10,7 @@ const page = () => {
   } | null>(null);
 
   const fetchSettings = async () => {
-    const res = await fetch("http://localhost:3000/api/formFetch");
+    const res = await fetch(`${process.env.Base_Url}/api/formFetch`);
     const data = await res.json();
     setSaved(data);
   };
@@ -37,7 +37,7 @@ const page = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:3000/api/form", options);
+      const res = await fetch(`${process.env.Base_Url}/api/form`, options);
 
       if (res.ok) {
         setSuccess(true);
