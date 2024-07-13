@@ -97,7 +97,7 @@ Contributions are always welcome!
 
 ## Developers
 
-- [@shadowctrl](https://www.github.com/shadowtrl)
+- [@shadowctrl](https://www.github.com/shadowctrl)
 
 ## Support
 
