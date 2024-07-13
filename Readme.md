@@ -37,7 +37,7 @@ To deploy and run the Telegram to Discord Message Mirror Bot locally or on your 
    _edit .env.local in parent directory with approrpriate values. set NEXT_PUBLIC_Base_Url to your next application url. If not sure leave it as it is_
 
    ```bash
-   Telegram_Token=1274727484:AAGS8XzZCOVG-wftZ0q5bR3-jfut92-e1AY
+   Telegram_Token=1274727484:AHBDFHSDFH-SDFJBSDHJF-SDHBBS
    NEXT_PUBLIC_Base_Url=http://localhost:3000
 
    ```
