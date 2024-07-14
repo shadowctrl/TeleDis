@@ -1,12 +1,11 @@
 import dynamic from "next/dynamic";
+import ToggleSwitch from "@/components/switch";
+
 const Timer = dynamic(() => import("@/lib/timer"), {
   ssr: false,
   loading: () => <p>Loading...</p>,
 });
-const Switch = dynamic(() => import("@/lib/switch"), {
-  ssr: false,
-  loading: () => <p>Loading...</p>,
-});
+
 export default function Home() {
   return (
     <main>
@@ -16,7 +15,7 @@ export default function Home() {
           <h1 className="hero-time">
             <Timer />
           </h1>
-          <Switch />
+          <ToggleSwitch />
         </div>
       </div>
     </main>
