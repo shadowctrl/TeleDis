@@ -9,7 +9,7 @@ This Application is still under development. Please be patient for daily updates
 
 - [Overview](#overview)
 - [Features](#features)
-- [Prerequisites](#prerequisties)
+- [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
 - [Environmental variables](#environment-variables)
 - [Technoligies Used](#technologies-used)
