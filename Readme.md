@@ -25,11 +25,19 @@ Additionally, the app features a web UI with a live dashboard for monitoring mes
 
 ## Features
 
-- Live Dashboard & Settings
+- Live Dashboard & Monitoring
 - Built-in logging with Next.js API
 - 24-hour message backup on errors
 - Efficient webhook integration
 - Server-Side Rendering for reliable performance
+
+## Prerequisites
+
+1. Telegram Bot Token
+2. Discord webhook URL
+3. Telegram Channel ID
+4. Telegram & Discord channel
+6. server for continuous monitoring. *Low budget hosting setup. Contact query@shadowctrl.me*
 
 ## Getting Started
 
