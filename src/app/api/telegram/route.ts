@@ -1,5 +1,5 @@
 import path from "path";
-import { promises as fs } from "fs";
+import { promises as fs, readFile } from "fs";
 
 const channelDataPath = path.join(process.cwd(), "src/lib/formData.json");
 const helperPath = path.join(process.cwd(), "src/lib/telegramHelper.json");
@@ -34,6 +34,13 @@ const updateId = async () => {
 
 //Fetch For New Chats
 const getUpdates = async () => {
+  const helperExists = await fs
+    .stat(helperPath)
+    .then(() => true)
+    .catch(() => false);
+  if (!helperExists)
+    await fs.writeFile(helperPath, JSON.stringify({ update_id: 0 }));
+
   var helperDataString = await fs.readFile(helperPath, "utf-8");
   const helperData: HelperData = JSON.parse(helperDataString);
 
@@ -66,26 +73,14 @@ const getUpdates = async () => {
         body: JSON.stringify(feeds.result[i].channel_post.text),
       });
   }
-  await updateId();
+  return await updateId();
 };
 
-let intervalId: NodeJS.Timeout;
-
-const Listen = async (value: Boolean) => {
-  if (value) {
-    try {
-      await fs.access(helperPath);
-      intervalId = setInterval(getUpdates, 3000);
-      // await getUpdates();
-    } catch (error) {
-      await updateId();
-    }
-  } else clearInterval(intervalId);
+const Listen = async () => {
+  await getUpdates();
+  setTimeout(Listen, 3000);
 };
-
 export const POST = async (request: Request) => {
-  const { value }: { value: Boolean } = await request.json();
-  Listen(value);
-
+  await Listen();
   return new Response("Telegram Bot Running", { status: 200 });
 };
