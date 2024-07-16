@@ -11,18 +11,18 @@ import {
 
 const Charts = () => {
   const chartData = [
-    { month: "January", messages: 186 },
-    { month: "February", messages: 305 },
-    { month: "March", messages: 237 },
-    { month: "April", messages: 73 },
-    { month: "May", messages: 209 },
-    { month: "June", messages: 214 },
-    { month: "July", messages: 214 },
-    { month: "August", messages: 500 },
-    { month: "September", messages: 800 },
-    { month: "October", messages: 430 },
-    { month: "November", messages: 700 },
-    { month: "December", messages: 245 },
+    { month: "January", messages: 1186 },
+    { month: "February", messages: 1305 },
+    { month: "March", messages: 2137 },
+    { month: "April", messages: 173 },
+    { month: "May", messages: 2109 },
+    { month: "June", messages: 1214 },
+    { month: "July", messages: 2114 },
+    { month: "August", messages: 5100 },
+    { month: "September", messages: 1800 },
+    { month: "October", messages: 4130 },
+    { month: "November", messages: 1700 },
+    { month: "December", messages: 2145 },
   ];
 
   const chartConfig = {
@@ -33,7 +33,7 @@ const Charts = () => {
   } satisfies ChartConfig;
 
   return (
-    <ChartContainer config={chartConfig} className="w-[45vw] h-[50vh]">
+    <ChartContainer config={chartConfig} className="w-[60vw] h-[50vh]">
       <BarChart accessibilityLayer data={chartData}>
         <XAxis
           dataKey="month"

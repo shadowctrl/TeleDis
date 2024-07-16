@@ -5,6 +5,19 @@ const Timer = dynamic(() => import("@/lib/timer"), {
   loading: () => <p>Loading...</p>,
 });
 
+const data = [
+  {
+    content: "Hello",
+    status: "success",
+  },
+  { content: "hi", status: "success" },
+  { content: "hello", status: "success" },
+  { content: "hi", status: "failed" },
+  { content: "hello", status: "success" },
+  { content: "hi", status: "success" },
+];
+
+const status = [{ content: "hello" }, { content: "hi" }];
 export default function Home() {
   return (
     <div className="App-main">
@@ -32,9 +45,34 @@ export default function Home() {
           <p>0</p>
         </div>
       </div>
-      <div className="hero-chart">
-        <h2> Overview</h2>
-        <Charts />
+      <div className="hero-section2">
+        <div className="hero-chart">
+          <h2> Overview</h2>
+          <Charts />
+        </div>
+        <div className="hero-recents">
+          <h2 className="recents-head">Recent Messages</h2>
+          <div className="recents-components">
+            <div className="recents-container">
+              <h2>content</h2>
+              <h2>status</h2>
+            </div>
+            <div className="recents-container1">
+              {data.map((value, index) => (
+                <div key={index} className="recent-item">
+                  <p>{value.content}</p>
+                  <p
+                    className={
+                      value.status == "success" ? "success" : "failure"
+                    }
+                  >
+                    {value.status}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
