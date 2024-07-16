@@ -49,11 +49,13 @@ const Charts = () => {
           axisLine={false}
         />
         <ChartTooltip
+          cursor={false}
           content={
             <ChartTooltipContent
+              nameKey="Messages"
               className="chart-tooltip"
-              color="white"
               indicator="line"
+              color="green"
             />
           }
         />

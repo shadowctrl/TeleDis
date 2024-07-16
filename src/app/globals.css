@@ -92,7 +92,7 @@ body {
 }
 
 .App-main {
-  height: 90vh;
+  height: 87vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -172,7 +172,4 @@ body {
   padding: 0vh 1.5vw;
   padding-bottom: 2vh;
   font-weight: 600;
-}
-.chart-tooltip span {
-  color: salmon;
 }

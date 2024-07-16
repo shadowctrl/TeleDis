@@ -7,7 +7,7 @@ const Timer = dynamic(() => import("@/lib/timer"), {
 
 export default function Home() {
   return (
-    <main className="App-main">
+    <div className="App-main">
       <div className="hero-head">
         <h1 className="hero-title">Dashboard</h1>
         <h1 className="hero-time">
@@ -36,6 +36,6 @@ export default function Home() {
         <h2> Overview</h2>
         <Charts />
       </div>
-    </main>
+    </div>
   );
 }
