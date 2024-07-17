@@ -67,11 +67,14 @@ const getUpdates = async () => {
   const { telegramId }: { telegramId: string } = JSON.parse(channelData);
 
   for (let i = 0; i < messageLength; i++) {
-    if (feeds.result[i].channel_post.chat.id == telegramId)
+    if (feeds.result[i].channel_post.chat.id == telegramId) {
+      const msgId = feeds.result[i].update_id;
+      const msgData = feeds.result[i].channel_post.text;
       await fetch(`${process.env.NEXT_PUBLIC_Base_Url}/api/discord`, {
         method: "POST",
-        body: JSON.stringify(feeds.result[i].channel_post.text),
+        body: JSON.stringify({ msgId, msgData }),
       });
+    }
   }
   return await updateId();
 };
@@ -80,7 +83,7 @@ const Listen = async () => {
   await getUpdates();
   setTimeout(Listen, 3000);
 };
-export const POST = async (request: Request) => {
+export const GET = async (request: Request) => {
   await Listen();
   return new Response("Telegram Bot Running", { status: 200 });
 };
