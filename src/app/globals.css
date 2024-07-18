@@ -210,9 +210,27 @@ body {
   display: flex;
   flex-direction: column;
   gap: 3vh;
-  padding-left: 10px;
+  padding: 0 10px;
 }
 
+.recents-item-container {
+  display: flex;
+  gap: 5vw;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease-in-out;
+}
+
+.recents-text {
+  font-weight: 700;
+  opacity: 0.7;
+  max-height: 3vh;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  text-align: center;
+}
 .recents-item-head {
   display: flex;
   gap: 1vw;

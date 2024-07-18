@@ -8,17 +8,11 @@ const Timer = dynamic(() => import("@/lib/timer"), {
   loading: () => <p>Loading...</p>,
 });
 
-const data = [
-  { content: "Hello", status: "success" },
-  { content: "hi", status: "success" },
-  { content: "hello", status: "success" },
-  { content: "hi", status: "failed" },
-  { content: "hello", status: "success" },
-];
-
 export default async function Home() {
-  // await fetch("http://localhost:3000/api/recentMessage");
-
+  const res = await fetch("http://localhost:3000/api/recentMessage", {
+    cache: "no-cache",
+  });
+  const Data = await res.json();
   return (
     <div className="App-main">
       <div className="hero-head">
@@ -56,32 +50,24 @@ export default async function Home() {
             <span>Handled 265 messages Last month</span>
           </h2>
           <div className="recents-components">
-            <div className="recents-item-head">
-              <Avatar>
-                <AvatarImage
-                  style={{ scale: 1.3 }}
-                  src="https://i.pinimg.com/originals/cc/6a/f2/cc6af2b47a62e61e1154a4726299ba46.jpg"
-                />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <div>
-                <h2>Raghav</h2>
-                <p>admin@shadowctrl.me</p>
+            {Data.map((data: any, key: number) => (
+              <div key={key} className="recents-item-container">
+                <div className="recents-item-head">
+                  <Avatar>
+                    <AvatarImage
+                      style={{ scale: 1.3 }}
+                      src="https://i.pinimg.com/originals/cc/6a/f2/cc6af2b47a62e61e1154a4726299ba46.jpg"
+                    />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <h2>{data.msgChannel}</h2>
+                    <p>{data.dateLocale}</p>
+                  </div>
+                </div>
+                <h2 className="recents-text">{data.text}</h2>
               </div>
-            </div>
-            <div className="recents-item-head">
-              <Avatar>
-                <AvatarImage
-                  style={{ scale: 1.3 }}
-                  src="https://i.pinimg.com/originals/cc/6a/f2/cc6af2b47a62e61e1154a4726299ba46.jpg"
-                />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <div>
-                <h2>Raghav</h2>
-                <p>admin@shadowctrl.me</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

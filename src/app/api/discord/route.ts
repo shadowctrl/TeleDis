@@ -39,7 +39,12 @@ export const POST = async (request: Request) => {
   var channelData = await fs.readFile(channelDataPath, "utf8");
   const { discordId }: { discordId: string } = JSON.parse(channelData);
   const { text, date, msgChannel, msgId } = await request.json();
-  const updateData = { msgId, text, date, msgChannel };
+  const dateLocale = new Date(date * 1000).toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+  const updateData = { msgId, text, dateLocale, msgChannel };
   try {
     await fetch(discordId, {
       method: "POST",
