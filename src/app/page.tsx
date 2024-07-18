@@ -1,24 +1,24 @@
 import dynamic from "next/dynamic";
 import Charts from "@/components/charts";
+import { useEffect } from "react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { AvatarImage } from "@radix-ui/react-avatar";
 const Timer = dynamic(() => import("@/lib/timer"), {
   ssr: false,
   loading: () => <p>Loading...</p>,
 });
 
 const data = [
-  {
-    content: "Hello",
-    status: "success",
-  },
+  { content: "Hello", status: "success" },
   { content: "hi", status: "success" },
   { content: "hello", status: "success" },
   { content: "hi", status: "failed" },
   { content: "hello", status: "success" },
-  { content: "hi", status: "success" },
 ];
 
-const status = [{ content: "hello" }, { content: "hi" }];
-export default function Home() {
+export default async function Home() {
+  // await fetch("http://localhost:3000/api/recentMessage");
+
   return (
     <div className="App-main">
       <div className="hero-head">
@@ -51,25 +51,36 @@ export default function Home() {
           <Charts />
         </div>
         <div className="hero-recents">
-          <h2 className="recents-head">Recent Messages</h2>
+          <h2 className="recents-head">
+            Recent Activity
+            <span>Handled 265 messages Last month</span>
+          </h2>
           <div className="recents-components">
-            <div className="recents-container">
-              <h2>content</h2>
-              <h2>status</h2>
+            <div className="recents-item-head">
+              <Avatar>
+                <AvatarImage
+                  style={{ scale: 1.3 }}
+                  src="https://i.pinimg.com/originals/cc/6a/f2/cc6af2b47a62e61e1154a4726299ba46.jpg"
+                />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <div>
+                <h2>Raghav</h2>
+                <p>admin@shadowctrl.me</p>
+              </div>
             </div>
-            <div className="recents-container1">
-              {data.map((value, index) => (
-                <div key={index} className="recent-item">
-                  <p>{value.content}</p>
-                  <p
-                    className={
-                      value.status == "success" ? "success" : "failure"
-                    }
-                  >
-                    {value.status}
-                  </p>
-                </div>
-              ))}
+            <div className="recents-item-head">
+              <Avatar>
+                <AvatarImage
+                  style={{ scale: 1.3 }}
+                  src="https://i.pinimg.com/originals/cc/6a/f2/cc6af2b47a62e61e1154a4726299ba46.jpg"
+                />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <div>
+                <h2>Raghav</h2>
+                <p>admin@shadowctrl.me</p>
+              </div>
             </div>
           </div>
         </div>

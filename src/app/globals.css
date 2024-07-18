@@ -92,12 +92,12 @@ body {
 }
 
 .App-main {
-  height: 87vh;
+  height: 89vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0vh 3vw;
-  margin-top: 3vh;
+  margin-top: 2vh;
 }
 .hero-head {
   display: flex;
@@ -163,11 +163,10 @@ body {
 .hero-chart {
   border: 1px solid rgb(255, 255, 255, 0.2);
   border-radius: 0.5vw;
-  width: 65%;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 2vh;
 }
 .hero-chart h2 {
   color: white;
@@ -179,75 +178,56 @@ body {
 .hero-section2 {
   display: flex;
   gap: 1vw;
+  justify-content: space-between;
 }
 
 .hero-recents {
   border: 1px solid rgba(255, 255, 255, 0.2);
-  width: 100%;
-  height: 60vh;
+  width: 50%;
+  height: 55vh;
   border-radius: 0.5vw;
   color: white;
   padding: 2vh 1vw;
   display: flex;
   flex-direction: column;
-  gap: 2vh;
+  gap: 4vh;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 .hero-recents .recents-head {
-  text-align: center;
-  font-weight: 800;
-  color: black;
-  background-color: white;
-  border-radius: 1vw;
-  position: relative;
-  width: 100%;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
 }
-
+.recents-head span {
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+}
 .recents-components {
   display: flex;
   flex-direction: column;
-  gap: 2vh;
-}
-.recents-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 1vw;
+  gap: 3vh;
+  padding-left: 10px;
 }
 
-.recents-container1 {
-  width: 100%;
-  padding-bottom: 1.5vh;
-  padding: 0 0.5vw;
+.recents-item-head {
   display: flex;
-  flex-direction: column;
-  gap: 0vh;
+  gap: 1vw;
 }
 
-.recents-container1 div {
-  position: relative;
-  padding: 2vh 0;
-}
-.recents-container1 div::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  border-bottom: 1px double rgb(255, 255, 255, 0.2);
+.recents-item-head div h2 {
+  font-size: medium;
+  font-weight: 700;
+  font-size: 14px;
 }
 
-.recents-components h2 {
-  font-weight: 500;
-  font-size: 17px;
-}
-.recent-item {
-  display: flex;
-  justify-content: space-between;
+.recents-item-head div p {
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.5);
 }
-
 .success {
   color: rgb(0, 255, 0, 0.8);
 }
