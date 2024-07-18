@@ -69,10 +69,12 @@ const getUpdates = async () => {
   for (let i = 0; i < messageLength; i++) {
     if (feeds.result[i].channel_post.chat.id == telegramId) {
       const msgId = feeds.result[i].update_id;
-      const msgData = feeds.result[i].channel_post.text;
+      const msgChannel = feeds.result[i].channel_post.chat.title;
+      const { text, date } = feeds.result[i].channel_post;
+
       await fetch(`${process.env.NEXT_PUBLIC_Base_Url}/api/discord`, {
         method: "POST",
-        body: JSON.stringify({ msgId, msgData }),
+        body: JSON.stringify({ msgId, text, msgChannel, date }),
       });
     }
   }
