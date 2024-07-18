@@ -21,6 +21,9 @@ const updateStatus = async (value: Boolean, updateData: any) => {
 
     if (prevData) {
       prevDataJson = JSON.parse(prevData);
+      if (prevDataJson.length > 4) {
+        prevDataJson = prevDataJson.slice(-4);
+      }
       prevDataJson.push(updateData);
     } else {
       prevDataJson = [updateData];
@@ -35,8 +38,8 @@ const updateStatus = async (value: Boolean, updateData: any) => {
 export const POST = async (request: Request) => {
   var channelData = await fs.readFile(channelDataPath, "utf8");
   const { discordId }: { discordId: string } = JSON.parse(channelData);
-  const { msgId, msgData } = await request.json();
-  const updateData = { msgId, msgData };
+  const { text, date, msgChannel, msgId } = await request.json();
+  const updateData = { msgId, text, date, msgChannel };
   try {
     await fetch(discordId, {
       method: "POST",
@@ -44,7 +47,7 @@ export const POST = async (request: Request) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        content: msgData,
+        content: text,
       }),
     });
 
