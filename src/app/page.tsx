@@ -13,6 +13,7 @@ export default async function Home() {
     cache: "no-cache",
   });
   const Data = await res.json();
+  const lastId = Data.length - 1;
   return (
     <div className="App-main">
       <div className="hero-head">
@@ -32,7 +33,7 @@ export default async function Home() {
         </div>
         <div>
           <h2 className="hero-card-title">Last Message ID</h2>
-          <p>0</p>
+          <p>{Data[lastId].msgId}</p>
         </div>
         <div>
           <h2 className="hero-card-title">Logs</h2>

@@ -1,23 +1,5 @@
 [
   {
-    "msgId": 19846369,
-    "text": "Hmm",
-    "dateLocale": "09:41:30 PM",
-    "msgChannel": "MirrorBridge"
-  },
-  {
-    "msgId": 19846372,
-    "text": "Hi",
-    "dateLocale": "09:44:04 PM",
-    "msgChannel": "MirrorBridge"
-  },
-  {
-    "msgId": 19846374,
-    "text": "Dear Applicant,\n\nWelcome to ONLINE ADMISSION PORTAL.\n\nExisting Users:\n\nLogin with the username (Application Number)\nPassword is your date of birth in format DDMMYYYY.\n(Eg. If your date of birth is 3rd April 2002 password format is 03042002).",
-    "dateLocale": "09:48:13 PM",
-    "msgChannel": "MirrorBridge"
-  },
-  {
     "msgId": 19846375,
     "dateLocale": "09:48:41 PM",
     "msgChannel": "MirrorBridge"
@@ -26,6 +8,24 @@
     "msgId": 19846376,
     "text": "Is there any one who got the losss please send me the screen shot",
     "dateLocale": "09:49:26 PM",
+    "msgChannel": "MirrorBridge"
+  },
+  {
+    "msgId": 19846377,
+    "text": "hello",
+    "dateLocale": "12:26:12 PM",
+    "msgChannel": "MirrorBridge"
+  },
+  {
+    "msgId": 19846378,
+    "text": "Is there any one who got the losss please send me the screen shotIs there any one who got the losss please send me the screen shotIs there any one who got the losss please send me the screen shotIs there any one who got the losss please send me the screen shot",
+    "dateLocale": "12:26:23 PM",
+    "msgChannel": "MirrorBridge"
+  },
+  {
+    "msgId": 19846379,
+    "text": "Is there any one who got the losss please send me the screen shot",
+    "dateLocale": "12:26:23 PM",
     "msgChannel": "MirrorBridge"
   }
 ]
