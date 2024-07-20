@@ -12,8 +12,10 @@ export default async function Home() {
   const res = await fetch("http://localhost:3000/api/recentMessage", {
     cache: "no-cache",
   });
-  const Data = await res.json();
+  const res1 = await res.json();
+  const Data = res1.recentMsg;
   const lastId = Data.length - 1;
+  const chartData = res1.monthData;
   return (
     <div className="App-main">
       <div className="hero-head">
@@ -42,8 +44,8 @@ export default async function Home() {
       </div>
       <div className="hero-section2">
         <div className="hero-chart">
-          <h2> Overview</h2>
-          <Charts />
+          <h2> Overview </h2>
+          <Charts chartData={chartData} />
         </div>
         <div className="hero-recents">
           <h2 className="recents-head">

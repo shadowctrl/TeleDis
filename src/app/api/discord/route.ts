@@ -2,12 +2,18 @@ import { promises as fs } from "fs";
 import path from "path";
 const channelDataPath = path.join(process.cwd(), "src/lib/formData.json");
 const recentMsgPath = path.join(process.cwd(), "src/logs/recentMsg.json");
+const monthLogPath = path.join(process.cwd(), "src/logs/monthLog.json");
 
 const updateStatus = async (value: Boolean, updateData: any) => {
   const isrecentMsgPath = await fs
     .stat(recentMsgPath)
     .then(() => true)
     .catch(() => false);
+
+  const currmonth = new Date().getMonth();
+  const monthData = JSON.parse(await fs.readFile(monthLogPath, "utf-8"));
+  monthData[currmonth].messages += 1;
+  await fs.writeFile(monthLogPath, JSON.stringify(monthData, null, 1), "utf-8");
 
   if (!isrecentMsgPath)
     return await fs.writeFile(

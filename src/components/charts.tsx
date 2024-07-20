@@ -9,22 +9,7 @@ import {
   ChartTooltipContent,
 } from "./ui/chart";
 
-const Charts = () => {
-  const chartData = [
-    { month: "January", messages: 4000 },
-    { month: "February", messages: 3000 },
-    { month: "March", messages: 13000 },
-    { month: "April", messages: 3500 },
-    { month: "May", messages: 5500 },
-    { month: "June", messages: 2500 },
-    { month: "July", messages: 7500 },
-    { month: "August", messages: 12000 },
-    { month: "September", messages: 1500 },
-    { month: "October", messages: 4500 },
-    { month: "November", messages: 4000 },
-    { month: "December", messages: 500 },
-  ];
-
+const Charts = ({ chartData }: any) => {
   const chartConfig = {
     messages: {
       label: "Total Messages",
