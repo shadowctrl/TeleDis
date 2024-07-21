@@ -8,6 +8,10 @@ const Timer = dynamic(() => import("@/lib/timer"), {
   loading: () => <p>Loading...</p>,
 });
 
+interface monthlyData {
+  month: string;
+  messages: number;
+}
 export default async function Home() {
   const res = await fetch("http://localhost:3000/api/recentMessage", {
     cache: "no-cache",
@@ -15,7 +19,12 @@ export default async function Home() {
   const res1 = await res.json();
   const Data = res1.recentMsg;
   const lastId = Data.length - 1;
-  const chartData = res1.monthData;
+  const chartData: monthlyData[] = res1.monthData;
+  let totalMessages: number = 0;
+
+  chartData.forEach((element) => {
+    totalMessages += element.messages;
+  });
   return (
     <div className="App-main">
       <div className="hero-head">
@@ -27,7 +36,7 @@ export default async function Home() {
       <div className="hero-head-cards">
         <div>
           <h2 className="hero-card-title">Total Messages</h2>
-          <p>10000</p>
+          <p>{totalMessages}</p>
         </div>
         <div>
           <h2 className="hero-card-title">Error Rates</h2>
